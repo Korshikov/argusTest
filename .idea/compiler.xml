@@ -11,7 +11,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="argusTest" target="1.5" />
+      <module name="argusTest" target="1.8" />
       <module name="argusTestProject" target="1.5" />
     </bytecodeTargetLevel>
   </component>

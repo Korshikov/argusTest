@@ -15,8 +15,8 @@
     <javax.jsf.version>2.3</javax.jsf.version>
     <javax.validation.version>2.0.0.Final</javax.validation.version>
     <hibernate.version>5.2.11.Final</hibernate.version>
-    <hibernate-validator.version>6.0.2.Final</hibernate-validator.version>
     <logback.version>1.2.3</logback.version>
+    <h2.version>1.4.196</h2.version>
     <junit.version>3.8.1</junit.version>
   </properties>
 
@@ -50,28 +50,6 @@
       </exclusions>
     </dependency>
     <dependency>
-      <groupId>org.hibernate.validator</groupId>
-      <artifactId>hibernate-validator</artifactId>
-      <version>${hibernate-validator.version}</version>
-      <exclusions>
-        <exclusion>
-          <groupId>org.jboss.logging</groupId>
-          <artifactId>jboss-logging</artifactId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-    <dependency>
-      <groupId>org.hibernate</groupId>
-      <artifactId>hibernate-entitymanager</artifactId>
-      <version>${hibernate.version}</version>
-      <exclusions>
-        <exclusion>
-          <groupId>org.jboss.logging</groupId>
-          <artifactId>jboss-logging</artifactId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-    <dependency>
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate-ehcache</artifactId>
       <version>${hibernate.version}</version>
@@ -94,6 +72,14 @@
       <artifactId>logback-access</artifactId>
       <version>${logback.version}</version>
     </dependency>
+
+    <!-- database -->
+    <dependency>
+      <groupId>com.h2database</groupId>
+      <artifactId>h2</artifactId>
+      <version>${h2.version}</version>
+    </dependency>
+
 
 
     <!-- Test scope -->
