@@ -12,6 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.PositiveOrZero;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.GenericGenerator;
@@ -30,7 +31,7 @@ public class ConnectionUnit {
   private String name;
 
   @Column(name = "capacity",nullable = false)
-  @Min(0)
+  @PositiveOrZero
   private Long capacity;
 
   @ManyToOne(cascade = {CascadeType.REMOVE})

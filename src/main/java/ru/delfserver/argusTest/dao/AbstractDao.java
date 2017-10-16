@@ -5,6 +5,7 @@ import java.lang.reflect.ParameterizedType;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
+import javax.transaction.Transactional;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
@@ -13,6 +14,7 @@ import org.hibernate.SessionFactory;
  * @param <PK> Primary key data type
  * @param <T> Entity for dao
  */
+@Transactional
 abstract class AbstractDao<PK extends Serializable, T> {
 
   private final Class<T> persistentClass;
