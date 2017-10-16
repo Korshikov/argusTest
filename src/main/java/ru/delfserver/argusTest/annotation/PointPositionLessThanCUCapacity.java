@@ -6,12 +6,18 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 import javax.validation.Constraint;
+import javax.validation.Payload;
 import ru.delfserver.argusTest.validator.PointPositionLessThanCUCapacityValidator;
 
-@Target({ ElementType.TYPE, ElementType.ANNOTATION_TYPE })
+@Target({ElementType.TYPE, ElementType.ANNOTATION_TYPE})
 @Retention(RetentionPolicy.RUNTIME)
-@Constraint(validatedBy = { PointPositionLessThanCUCapacityValidator.class })
+@Constraint(validatedBy = {PointPositionLessThanCUCapacityValidator.class})
 @Documented
 public @interface PointPositionLessThanCUCapacity {
 
+  String message() default "point position must be not negative number less than connection unit capacity";
+
+  Class<?>[] groups() default {};
+
+  Class<? extends Payload>[] payload() default {};
 }

@@ -17,25 +17,25 @@ import org.hibernate.annotations.GenericGenerator;
 import ru.delfserver.argusTest.annotation.PointPositionLessThanCUCapacity;
 
 @Entity
-@Table(name = "points",uniqueConstraints =
-    {@UniqueConstraint(columnNames = {"connection_unit_id","position"})}
-    )
+@Table(name = "points", uniqueConstraints =
+    {@UniqueConstraint(columnNames = {"connection_unit_id", "position"})}
+)
 @Cache(usage = CacheConcurrencyStrategy.READ_ONLY)
 @PointPositionLessThanCUCapacity
 public class Point {
 
   @Id
-  @GeneratedValue(generator="increment")
-  @GenericGenerator(name="increment", strategy = "increment")
+  @GeneratedValue(generator = "increment")
+  @GenericGenerator(name = "increment", strategy = "increment")
   private Long id;
 
   @ManyToOne
   @JoinColumn(name = "connection_unit_id", nullable = false)
   private ConnectionUnit parentConnectionUnit;
 
+  //TODO forbid connect to yourself
   @Column(name = "position", nullable = false)
   @Min(0)
-
   private Long position;
 
   @OneToOne(fetch = FetchType.LAZY)

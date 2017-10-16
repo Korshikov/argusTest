@@ -15,9 +15,10 @@
     <javax.jsf.version>2.3</javax.jsf.version>
     <javax.validation.version>2.0.0.Final</javax.validation.version>
     <hibernate.version>5.2.11.Final</hibernate.version>
+    <hibernate-validator.version>6.0.2.Final</hibernate-validator.version>
     <logback.version>1.2.3</logback.version>
     <h2.version>1.4.196</h2.version>
-    <junit.version>3.8.1</junit.version>
+    <junit.version>4.12</junit.version>
   </properties>
 
   <dependencies>
@@ -42,24 +43,24 @@
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate-core</artifactId>
       <version>${hibernate.version}</version>
-      <exclusions>
-        <exclusion>
-          <groupId>org.jboss.logging</groupId>
-          <artifactId>jboss-logging</artifactId>
-        </exclusion>
-      </exclusions>
     </dependency>
     <dependency>
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate-ehcache</artifactId>
       <version>${hibernate.version}</version>
-      <exclusions>
-        <exclusion>
-          <groupId>org.jboss.logging</groupId>
-          <artifactId>jboss-logging</artifactId>
-        </exclusion>
-      </exclusions>
     </dependency>
+
+    <dependency>
+      <groupId>org.hibernate.validator</groupId>
+      <artifactId>hibernate-validator</artifactId>
+      <version>${hibernate-validator.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-validator-cdi</artifactId>
+      <version>${hibernate-validator.version}</version>
+    </dependency>
+
 
     <!-- Logback -->
     <dependency>
@@ -81,6 +82,14 @@
     </dependency>
 
 
+    <dependency>
+      <groupId>org.glassfish</groupId>
+      <artifactId>javax.el</artifactId>
+      <version>3.0.1-b08</version>
+    </dependency>
+
+
+
 
     <!-- Test scope -->
     <dependency>
@@ -89,7 +98,6 @@
       <version>${junit.version}</version>
       <scope>test</scope>
     </dependency>
-
 
   </dependencies>
 
