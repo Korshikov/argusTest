@@ -5,7 +5,7 @@
   <artifactId>argusTest</artifactId>
   <packaging>war</packaging>
   <version>1.0-SNAPSHOT</version>
-  <name>argusTestProject Maven Webapp</name>
+  <name>argusTest Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <dependencies>
     <dependency>
