@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="argusTestProject:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="argusTestProject.war">
+      <element id="artifact" artifact-name="argusTestProject:war exploded" />
+    </root>
+  </artifact>
+</component>

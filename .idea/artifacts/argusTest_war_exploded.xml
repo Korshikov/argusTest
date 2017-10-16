@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="argusTest:war exploded">
+    <output-path>$PROJECT_DIR$/target/argusTest</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="argusTest" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/target/argusTest/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="argusTest/web/Web" />
+    </root>
+  </artifact>
+</component>

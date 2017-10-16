@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/argusTest.iml" filepath="$PROJECT_DIR$/argusTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/argusTestProject.iml" filepath="$PROJECT_DIR$/argusTestProject.iml" />
+    </modules>
+  </component>
+</project>
