@@ -10,10 +10,11 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
-import javax.validation.constraints.Min;
+import javax.validation.constraints.PositiveOrZero;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.GenericGenerator;
+import ru.delfserver.argusTest.annotation.ForbidJoinYourself;
 import ru.delfserver.argusTest.annotation.PointPositionLessThanCUCapacity;
 
 @Entity
@@ -22,6 +23,7 @@ import ru.delfserver.argusTest.annotation.PointPositionLessThanCUCapacity;
 )
 @Cache(usage = CacheConcurrencyStrategy.READ_ONLY)
 @PointPositionLessThanCUCapacity
+@ForbidJoinYourself
 public class Point {
 
   @Id
@@ -33,13 +35,13 @@ public class Point {
   @JoinColumn(name = "connection_unit_id", nullable = false)
   private ConnectionUnit parentConnectionUnit;
 
-  //TODO forbid connect to yourself
   @Column(name = "position", nullable = false)
-  @Min(0)
+  @PositiveOrZero
   private Long position;
 
   @OneToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "linked_point_id")
+
   private Point linkedPoint;
 
   public Point(ConnectionUnit parentConnectionUnit, Long position) {

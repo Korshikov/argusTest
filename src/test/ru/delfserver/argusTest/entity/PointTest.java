@@ -24,11 +24,12 @@ public class PointTest {
   }
 
   @Test
-  public void createPointTest() {
+  public void pointValidationTest() {
     Point point = new Point(connectionUnit, 2L);
+    point.setLinkedPoint(point);
     Set<ConstraintViolation<Point>> constraintViolations =
         validator.validate(point);
-    assertNotEquals(0,constraintViolations.size());
+    assertEquals(2,constraintViolations.size());
 
   }
 
