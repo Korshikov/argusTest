@@ -12,6 +12,8 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <javax.jsf.version>2.3</javax.jsf.version>
+    <javax.validation.version>2.0.0.Final</javax.validation.version>
     <hibernate.version>5.2.11.Final</hibernate.version>
     <hibernate-validator.version>6.0.2.Final</hibernate-validator.version>
     <logback.version>1.2.3</logback.version>
@@ -19,6 +21,21 @@
   </properties>
 
   <dependencies>
+    <!-- JSF -->
+    <dependency>
+      <groupId>javax.faces</groupId>
+      <artifactId>javax.faces-api</artifactId>
+      <version>${javax.jsf.version}</version>
+      <scope>provided</scope>
+    </dependency>
+
+    
+    <dependency>
+      <groupId>javax.validation</groupId>
+      <artifactId>validation-api</artifactId>
+      <version>${javax.validation.version}</version>
+      <scope>provided</scope>
+    </dependency>
 
     <!-- Hibernate -->
     <dependency>
