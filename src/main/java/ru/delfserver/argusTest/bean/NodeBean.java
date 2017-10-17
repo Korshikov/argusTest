@@ -12,9 +12,8 @@ import ru.delfserver.argusTest.util.HibernateUtil;
 @Named
 @ViewScoped
 public class NodeBean {
-  Collection<Node> nodes;
 
-  public Collection<Node> getAllNodes(){
+  public Collection<Node> getAllNodes() {
     NodeDao nodeDao = new NodeDaoImpl(HibernateUtil.getSessionFactory());
     return nodeDao.getAllNodes();
   }
