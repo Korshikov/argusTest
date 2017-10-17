@@ -3,6 +3,7 @@ package ru.delfserver.argusTest.dao;
 import ru.delfserver.argusTest.entity.ConnectionUnit;
 
 public interface ConnectionUnitDao {
+
   void create(ConnectionUnit connectionUnit);
 
   void save(ConnectionUnit connectionUnit);

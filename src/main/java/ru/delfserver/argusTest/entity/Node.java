@@ -14,12 +14,13 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-@Table(name="nodes")
+@Table(name = "nodes")
 @Cache(usage = CacheConcurrencyStrategy.READ_ONLY)
 public class Node {
+
   @Id
-  @GeneratedValue(generator="increment")
-  @GenericGenerator(name="increment", strategy = "increment")
+  @GeneratedValue(generator = "increment")
+  @GenericGenerator(name = "increment", strategy = "increment")
   private Long id;
 
   @Column(name = "name")
@@ -34,7 +35,7 @@ public class Node {
   @Column(name = "house")
   private String house;
 
-  @OneToMany(cascade = { CascadeType.REMOVE})
+  @OneToMany(cascade = {CascadeType.REMOVE})
   private Set<ConnectionUnit> connectionUnits;
 
 
