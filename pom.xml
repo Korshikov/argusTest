@@ -12,7 +12,10 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <javax.jsf.version>2.3</javax.jsf.version>
+    <javax.faces.version>2.3</javax.faces.version>
+    <glassfish.faces.version>2.3.3</glassfish.faces.version>
+    <jboss.weld-servlet.version>2.4.5.Final</jboss.weld-servlet.version>
+    <javax.cdi.version>2.0</javax.cdi.version>
     <javax.validation.version>2.0.0.Final</javax.validation.version>
     <hibernate.version>5.2.11.Final</hibernate.version>
     <hibernate-validator.version>6.0.2.Final</hibernate-validator.version>
@@ -22,21 +25,39 @@
   </properties>
 
   <dependencies>
-    <!-- JSF -->
+
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+      <version>4.0.0</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>javax.servlet.jsp</groupId>
+      <artifactId>javax.servlet.jsp-api</artifactId>
+      <version>2.3.1</version>
+      <scope>provided</scope>
+    </dependency>
     <dependency>
       <groupId>javax.faces</groupId>
       <artifactId>javax.faces-api</artifactId>
-      <version>${javax.jsf.version}</version>
+      <version>${javax.faces.version}</version>
       <scope>provided</scope>
     </dependency>
-
+    
 
     <dependency>
-      <groupId>javax.validation</groupId>
-      <artifactId>validation-api</artifactId>
-      <version>${javax.validation.version}</version>
-      <scope>provided</scope>
+      <groupId>org.glassfish</groupId>
+      <artifactId>javax.faces</artifactId>
+      <version>${glassfish.faces.version}</version>
     </dependency>
+
+    <dependency>
+      <groupId>org.jboss.weld.servlet</groupId>
+      <artifactId>weld-servlet</artifactId>
+      <version>${jboss.weld-servlet.version}</version>
+    </dependency>
+
 
     <!-- Hibernate -->
     <dependency>
@@ -74,21 +95,6 @@
       <groupId>com.h2database</groupId>
       <artifactId>h2</artifactId>
       <version>${h2.version}</version>
-    </dependency>
-
-
-    <dependency>
-      <groupId>org.glassfish</groupId>
-      <artifactId>javax.el</artifactId>
-      <version>3.0.1-b08</version>
-    </dependency>
-
-
-    <dependency>
-      <groupId>javax</groupId>
-      <artifactId>javaee-web-api</artifactId>
-      <version>8.0</version>
-      <scope>provided</scope>
     </dependency>
 
 
@@ -161,6 +167,11 @@
            </gitDescribe>
          </configuration>
        </plugin>-->
+      <plugin>
+        <groupId>org.eclipse.jetty</groupId>
+        <artifactId>jetty-maven-plugin</artifactId>
+        <version>9.4.7.v20170914</version>
+      </plugin>
     </plugins>
     <finalName>argusTest</finalName>
   </build>

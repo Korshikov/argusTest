@@ -5,6 +5,7 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -35,7 +36,7 @@ public class Node {
   @Column(name = "house")
   private String house;
 
-  @OneToMany(cascade = {CascadeType.REMOVE})
+  @OneToMany(cascade = {CascadeType.REMOVE},fetch = FetchType.EAGER)
   private Set<ConnectionUnit> connectionUnits;
 
 
@@ -44,6 +45,9 @@ public class Node {
     this.region = region;
     this.street = street;
     this.house = house;
+  }
+
+  public Node() {
   }
 
   public Long getId() {

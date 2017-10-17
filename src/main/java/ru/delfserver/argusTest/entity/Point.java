@@ -39,7 +39,7 @@ public class Point {
   @PositiveOrZero
   private Long position;
 
-  @OneToOne(fetch = FetchType.LAZY)
+  @OneToOne(fetch = FetchType.EAGER)
   @JoinColumn(name = "linked_point_id")
 
   private Point linkedPoint;

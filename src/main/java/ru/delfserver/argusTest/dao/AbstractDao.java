@@ -2,12 +2,16 @@ package ru.delfserver.argusTest.dao;
 
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
+import java.util.List;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import javax.transaction.Transactional;
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import ru.delfserver.argusTest.entity.Node;
 
 /***
  * Abstract dao class
@@ -34,19 +38,58 @@ abstract class AbstractDao<PK extends Serializable, T> {
 
   @SuppressWarnings("unchecked")
   public T findById(PK key) {
-    return getSession().get(persistentClass, key);
+    Transaction transaction = null;
+    T result = null;
+    try {
+      transaction = getSession().beginTransaction();
+      result = getSession().get(persistentClass, key);
+      transaction.commit();
+    } catch (HibernateException e) {
+      if (transaction != null) {
+        transaction.rollback();
+      }
+    }
+
+    return result;
   }
 
   public void create(T entity) {
-    getSession().persist(entity);
+    Transaction transaction = null;
+    try {
+      transaction = getSession().beginTransaction();
+      getSession().persist(entity);
+      transaction.commit();
+    } catch (HibernateException e) {
+      if (transaction != null) {
+        transaction.rollback();
+      }
+    }
   }
 
   public void save(T entity) {
-    getSession().update(entity);
+    Transaction transaction = null;
+    try {
+      transaction = getSession().beginTransaction();
+      getSession().update(entity);
+      transaction.commit();
+    } catch (HibernateException e) {
+      if (transaction != null) {
+        transaction.rollback();
+      }
+    }
   }
 
   public void delete(T entity) {
-    getSession().delete(entity);
+    Transaction transaction = null;
+    try {
+      transaction = getSession().beginTransaction();
+      getSession().delete(entity);
+      transaction.commit();
+    } catch (HibernateException e) {
+      if (transaction != null) {
+        transaction.rollback();
+      }
+    }
   }
 
   protected CriteriaQuery<T> createEntitySelectCriteria() {

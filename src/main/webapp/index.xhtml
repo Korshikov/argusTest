@@ -8,28 +8,53 @@
     <title>Nodes Table</title>
 </h:head>
 <h:body>
-    <h:dataTable value="#{nodeBean.allNodes}" var="node" border="1">
+    <h:dataTable value="${nodeBean.allNodes}" var="node" border="1">
         <h:column>
             <f:facet name="header">Node Id</f:facet>
-            #{node.id}
+            ${node.id}
         </h:column>
         <h:column>
             <f:facet name="header">Node Name</f:facet>
-            #{node.name}
+            ${node.name}
         </h:column>
         <h:column>
             <f:facet name="header">Node Region</f:facet>
-            #{node.region}
+            ${node.region}
         </h:column>
         <h:column>
             <f:facet name="header">Node Street</f:facet>
-            #{node.street}
+            ${node.street}
         </h:column>
         <h:column>
             <f:facet name="header">Node Home</f:facet>
-            #{node.house}
+            ${node.house}
         </h:column>
-
+        <h:column>
+            <f:facet name="header">Node cu count</f:facet>
+            ${node.connectionUnits.size()}
+        </h:column>
+        <h:column>
+            <f:facet name="header">CU</f:facet>
+            <h:dataTable value="${node.connectionUnits.toArray()}" var="cu" border="1">
+                <h:column>
+                    <f:facet name="header">name</f:facet>
+                    ${cu.name}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">capacity</f:facet>
+                    ${cu.capacity}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Point</f:facet>
+                    <h:dataTable value="${cu.points.toArray()}" var="point" border="1">
+                        <h:column>
+                            <f:facet name="header">position</f:facet>
+                            ${point.position}
+                        </h:column>
+                    </h:dataTable>
+                </h:column>
+            </h:dataTable>
+        </h:column>
     </h:dataTable>
 </h:body>
 </html>

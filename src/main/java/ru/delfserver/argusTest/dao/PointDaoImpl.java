@@ -5,7 +5,7 @@ import ru.delfserver.argusTest.entity.Point;
 
 public class PointDaoImpl extends AbstractDao<Long, Point> implements PointDao {
 
-  PointDaoImpl(SessionFactory sessionFactory) {
+  public PointDaoImpl(SessionFactory sessionFactory) {
     super(sessionFactory);
   }
 }

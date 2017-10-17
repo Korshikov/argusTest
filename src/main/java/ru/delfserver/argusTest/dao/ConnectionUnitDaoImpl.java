@@ -6,7 +6,7 @@ import ru.delfserver.argusTest.entity.ConnectionUnit;
 public class ConnectionUnitDaoImpl extends AbstractDao<Long, ConnectionUnit> implements
     ConnectionUnitDao {
 
-  ConnectionUnitDaoImpl(SessionFactory sessionFactory) {
+  public ConnectionUnitDaoImpl(SessionFactory sessionFactory) {
     super(sessionFactory);
   }
 

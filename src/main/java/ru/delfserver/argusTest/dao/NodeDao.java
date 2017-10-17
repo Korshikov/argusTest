@@ -1,6 +1,7 @@
 package ru.delfserver.argusTest.dao;
 
 import java.util.List;
+import java.util.Optional;
 import ru.delfserver.argusTest.entity.Node;
 
 public interface NodeDao {
@@ -13,5 +14,5 @@ public interface NodeDao {
 
   Node findById(Long nodeId);
 
-  List<Node> getAllNodes();
+  Optional<List<Node>> getAllNodes();
 }
